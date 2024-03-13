@@ -1,34 +1,32 @@
 <div class="h-[100vh] w-full flex items-center justify-center flex-col">
     <div [ngClass]="{'opacity-0': hiddenForm}"
         class=" min-h-52 min-w-96 bg-gray-400 rounded-md transition-all ease-in-out duration-500 flex items-center justify-center flex-col text-3xl font-extralight">
-        <form [formGroup]="passForm">
+        <form [formGroup]="passForm" autocomplete="off">
             <label class="block mb-3 text-center" for="fieldPassword">
                 Your Password
             </label>
-            <input [ngClass]="{
+            <input 
+                [ngClass]="{
                     'ring ring-pink-800':(passForm.controls['password'].errors?.['required'] && passForm.get('password')?.touched) || passQuality === 'weak' || passForm.get('password')?.getError('minlength'),
                     'ring ring-yellow-600': passQuality === 'medium',
-                    'ring ring-green-800': passQuality === 'strong'}" 
-                    type="text" formControlName="password"
-                    id="fieldPassword" 
-                    [(ngModel)]="inputPass" 
-                    (click)="updateStrength()" 
-                    (input)="updateStrength()"
-                    class="p-2 rounded-md transition-all ease-in-out duration-250 outline-none">
-            <div class="flex flex-row gap-4 mt-5 w-full items-center justify-center transition-all ease-in-out duration-150">
+                    'ring ring-green-800': passQuality === 'strong'}" type="text" formControlName="password"
+                id="fieldPassword" (click)="updateQuality()" (input)="updateQuality()"
+                class="p-2 rounded-md transition-all ease-in-out duration-250 outline-none">
+            <div
+                class="flex flex-row gap-4 mt-5 w-full items-center justify-center transition-all ease-in-out duration-150">
                 <div class="min-h-6 min-w-6 bg-gray-600 transition-all ease-in-out duration-500" [ngClass]="{
                     'bg-gray-600': passQuality === 'little' || passForm.get('password')?.untouched,
-                    'bg-pink-800': passQuality === 'weak' || passForm.controls['password'].errors?.['required'] && passForm.get('password')?.touched, 
+                    'bg-pink-800': passQuality === 'weak' || passQuality === 'absent' && passForm.get('password')?.touched, 
                     'bg-yellow-600': passQuality === 'medium', 
                     'bg-green-800': passQuality === 'strong'}"></div>
                 <div class="min-h-6 min-w-6 bg-gray-600 transition-all ease-in-out duration-500" [ngClass]="{
                     'bg-gray-600':passQuality === 'little' || passForm.get('password')?.untouched || passQuality === 'weak',
-                    'bg-pink-800': passForm.controls['password'].errors?.['required'] && passForm.get('password')?.touched, 'bg-yellow-600': passQuality === 'medium', 
+                    'bg-pink-800': passQuality === 'absent' && passForm.get('password')?.touched, 'bg-yellow-600': passQuality === 'medium', 
                     'bg-green-800': passQuality === 'strong' 
                     }"></div>
                 <div class="min-h-6 min-w-6 bg-gray-600 transition-all ease-in-out duration-500" [ngClass]="{
                     'bg-gray-600': passQuality === 'little' || passForm.get('password')?.untouched || passForm.controls['password'].errors?.['minlength'] || passQuality === 'medium' || passQuality === 'weak',
-                    'bg-pink-800': passForm.controls['password'].errors?.['required'] && passForm.get('password')?.touched,  'bg-green-800': passQuality === 'strong'
+                    'bg-pink-800': passQuality === 'absent' && passForm.get('password')?.touched,  'bg-green-800': passQuality === 'strong'
                     }"></div>
             </div>
         </form>
