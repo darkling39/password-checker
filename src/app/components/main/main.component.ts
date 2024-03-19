@@ -1,13 +1,10 @@
+import { animate, state, style, transition, trigger } from '@angular/animations';
 import {
-  AfterViewInit,
   Component,
-  OnChanges,
   OnInit,
-  SimpleChanges,
 } from '@angular/core';
 import {
   FormBuilder,
-  FormControl,
   FormGroup,
   Validators,
 } from '@angular/forms';
@@ -17,16 +14,23 @@ import { __values } from 'tslib';
   selector: 'app-main',
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.css'],
+  animations: [
+    trigger('hiddenState', [
+      transition(':enter', [
+        style({
+          opacity: 0
+        }),
+        animate('500ms 500ms ease-in', style({opacity: 1}))
+      ])
+  ])]
 })
 export class MainComponent implements OnInit {
   constructor(private fb: FormBuilder) {}
+
+  state = 'hidden'
   currentPass: string;
-  hiddenForm = true;
   passForm: FormGroup;
   ngOnInit() {
-    setTimeout(() => {
-      this.hiddenForm = false;
-    }, 1000);
     this.passForm = this.fb.group({
       password: ['', [Validators.minLength(8), Validators.required]],
     });

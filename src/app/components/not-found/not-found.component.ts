@@ -5,11 +5,6 @@ import {AfterViewInit, Component } from '@angular/core';
   templateUrl: './not-found.component.html',
   styleUrls: ['./not-found.component.css']
 })
-export class NotFoundComponent implements AfterViewInit{
-  hidden = true
-  ngAfterViewInit(){
-    setTimeout(() => {
-      this.hidden = false
-    }, 1000)
-}
+export class NotFoundComponent{
+
 }

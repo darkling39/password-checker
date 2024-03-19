@@ -1,6 +1,7 @@
 <div class="h-[100vh] w-full flex items-center justify-center flex-col">
-    <div [ngClass]="{'opacity-0': hiddenForm}"
-        class=" min-h-52 min-w-96 bg-gray-400 rounded-md transition-all ease-in-out duration-500 flex items-center justify-center flex-col text-3xl font-extralight">
+    <div [@hiddenState]="state"
+        class=" min-h-52 min-w-96 bg-gray-400 rounded-md flex items-center justify-center flex-col text-3xl font-extralight"
+        >
         <form [formGroup]="passForm" autocomplete="off">
             <app-input formControlName="password"></app-input>
             <app-difficulty 
