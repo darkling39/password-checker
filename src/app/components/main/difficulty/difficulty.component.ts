@@ -5,18 +5,19 @@ import { DiffService } from 'src/app/services/diff.service';
 @Component({
   selector: 'app-difficulty',
   templateUrl: './difficulty.component.html',
-  styleUrls: ['./difficulty.component.css']
+  styleUrls: ['./difficulty.component.css'],
 })
 export class DifficultyComponent implements OnChanges {
-  @Input() pass: string
-  @Input() form: FormGroup
-  passQuality:string
+  @Input() pass: string;
+  @Input() form: FormGroup;
+  passQuality: string;
 
-  constructor(private difficultService:DiffService){}
+  constructor(private difficultService: DiffService) {}
 
   ngOnChanges(changes: SimpleChanges): void {
-    this.passQuality = this.difficultService.updateQuality(this.form, this.passQuality)
-    console.log(this.passQuality);
-    
+    this.passQuality = this.difficultService.updateQuality(
+      this.form,
+      this.passQuality
+    );
   }
 }

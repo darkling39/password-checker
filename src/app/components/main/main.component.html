@@ -1,12 +1,9 @@
 <div class="h-[100vh] w-full flex items-center justify-center flex-col">
     <div [@hiddenState]="state"
-        class=" min-h-52 min-w-96 bg-gray-400 rounded-md flex items-center justify-center flex-col text-3xl font-extralight"
-        >
+        class=" min-h-52 min-w-96 bg-gray-400 rounded-md flex items-center justify-center flex-col text-3xl font-extralight">
         <form [formGroup]="passForm" autocomplete="off">
             <app-input formControlName="password"></app-input>
-            <app-difficulty 
-            [pass]="currentPass"
-            [form]="passForm" ></app-difficulty>
+            <app-difficulty [pass]="currentPass" [form]="passForm"></app-difficulty>
         </form>
     </div>
 </div>

@@ -1,5 +1,5 @@
 import { animate, style, transition, trigger } from '@angular/animations';
-import { AfterViewInit, Component } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -10,25 +10,25 @@ import { Router } from '@angular/router';
     trigger('hiddenState', [
       transition(':enter', [
         style({
-          opacity: 0
+          opacity: 0,
         }),
-        animate('500ms 500ms ease-in', style({opacity: 1}))
-      ])
-  ]),
-  trigger('hiddenState2', [
-    transition(':enter', [
-      style({
-        opacity: 0
-      }),
-      animate('500ms 1000ms ease-in', style({opacity: 1}))
-    ])
-])]
+        animate('500ms 500ms ease-in', style({ opacity: 1 })),
+      ]),
+    ]),
+    trigger('hiddenState2', [
+      transition(':enter', [
+        style({
+          opacity: 0,
+        }),
+        animate('500ms 1000ms ease-in', style({ opacity: 1 })),
+      ]),
+    ]),
+  ],
 })
-export class StartPageComponent{
-  
-  constructor(private router:Router){}
+export class StartPageComponent {
+  constructor(private router: Router) {}
 
-  toMain(){
-      this.router.navigate(['main'])
+  toMain() {
+    this.router.navigate(['main']);
   }
 }

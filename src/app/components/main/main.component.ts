@@ -1,13 +1,6 @@
-import { animate, state, style, transition, trigger } from '@angular/animations';
-import {
-  Component,
-  OnInit,
-} from '@angular/core';
-import {
-  FormBuilder,
-  FormGroup,
-  Validators,
-} from '@angular/forms';
+import { animate, style, transition, trigger } from '@angular/animations';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { __values } from 'tslib';
 
 @Component({
@@ -18,16 +11,17 @@ import { __values } from 'tslib';
     trigger('hiddenState', [
       transition(':enter', [
         style({
-          opacity: 0
+          opacity: 0,
         }),
-        animate('500ms 500ms ease-in', style({opacity: 1}))
-      ])
-  ])]
+        animate('500ms 500ms ease-in', style({ opacity: 1 })),
+      ]),
+    ]),
+  ],
 })
 export class MainComponent implements OnInit {
   constructor(private fb: FormBuilder) {}
 
-  state = 'hidden'
+  state = 'hidden';
   currentPass: string;
   passForm: FormGroup;
   ngOnInit() {

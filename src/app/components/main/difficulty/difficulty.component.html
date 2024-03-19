@@ -1,5 +1,4 @@
-<div
-    class="flex flex-row gap-4 mt-5 w-full items-center justify-center transition-all ease-in-out duration-150">
+<div class="flex flex-row gap-4 mt-5 w-full items-center justify-center transition-all ease-in-out duration-150">
     <div class="min-h-6 min-w-6 bg-gray-600 transition-all ease-in-out duration-500" [ngClass]="{
         'bg-gray-600': passQuality === 'absent' || form.get('password')?.untouched,
         'bg-pink-800': passQuality === 'weak' && form.get('password')?.touched || passQuality === 'little', 

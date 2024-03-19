@@ -1,6 +1,5 @@
-import { Component, ElementRef, Input, forwardRef } from '@angular/core';
+import { Component, forwardRef } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { DiffService } from 'src/app/services/diff.service';
 
 @Component({
   selector: 'app-input',
@@ -17,23 +16,23 @@ import { DiffService } from 'src/app/services/diff.service';
 export class InputComponent implements ControlValueAccessor {
   inputPass: string = '';
 
-  touched = false
+  touched = false;
 
   onChange(value: string) {}
 
-  onTouch = () => {}
+  onTouch = () => {};
 
-  onInput(value:string){
-    this.inputPass = value
-    this.onChange(this.inputPass)
-    this.markAsTouched()
+  onInput(value: string) {
+    this.inputPass = value;
+    this.onChange(this.inputPass);
+    this.markAsTouched();
     // this.writeValue(this.inputPass)
   }
 
   writeValue(value: string): void {
     this.inputPass = value;
   }
-  
+
   registerOnChange(fn: any): void {
     this.onChange = fn;
   }
@@ -42,10 +41,10 @@ export class InputComponent implements ControlValueAccessor {
     this.onTouch = fn;
   }
 
-  markAsTouched(){
-    if(!this.touched){
-      this.onTouch()
-      this.touched = true
+  markAsTouched() {
+    if (!this.touched) {
+      this.onTouch();
+      this.touched = true;
     }
   }
 }
