@@ -7,13 +7,17 @@ import { StartPageComponent } from './components/start-page/start-page.component
 import { MainComponent } from './components/main/main.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { InputComponent } from './components/main/input/input.component';
+import { DifficultyComponent } from './components/main/difficulty/difficulty.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     StartPageComponent,
     MainComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    InputComponent,
+    DifficultyComponent
   ],
   imports: [
     BrowserModule,

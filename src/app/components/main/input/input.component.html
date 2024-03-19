@@ -1,0 +1,14 @@
+<label class="block mb-3 text-center" for="fieldPassword">
+    Your Password
+</label>
+<input 
+    class="p-2 rounded-md transition-all ease-in-out duration-250 outline-none"
+    id="fieldPassword"
+    #input
+    (input)="onInput(input.value)"
+    >
+    <!-- [ngClass]="{
+        'ring ring-pink-800':(passForm.controls['password'].errors?.['required'] && passForm.get('password')?.touched) || passQuality === 'weak' || passForm.get('password')?.getError('minlength'),
+        'ring ring-yellow-600': passQuality === 'medium',
+        'ring ring-green-800': passQuality === 'strong'}" type="text" formControlName="password"
+    id="fieldPassword" (click)="difficultService.updateQuality()" (input)="updateQuality()" -->
