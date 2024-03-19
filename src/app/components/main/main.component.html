@@ -3,7 +3,9 @@
         class=" min-h-52 min-w-96 bg-gray-400 rounded-md transition-all ease-in-out duration-500 flex items-center justify-center flex-col text-3xl font-extralight">
         <form [formGroup]="passForm" autocomplete="off">
             <app-input formControlName="password"></app-input>
-            <app-difficulty ></app-difficulty>
+            <app-difficulty 
+            [pass]="currentPass"
+            [form]="passForm" ></app-difficulty>
         </form>
     </div>
 </div>

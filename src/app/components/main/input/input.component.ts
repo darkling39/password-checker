@@ -15,7 +15,9 @@ import { DiffService } from 'src/app/services/diff.service';
   ],
 })
 export class InputComponent implements ControlValueAccessor {
-  @Input() inputPass: string = '';
+  inputPass: string = '';
+
+  touched = false
 
   onChange(value: string) {}
 
@@ -24,6 +26,8 @@ export class InputComponent implements ControlValueAccessor {
   onInput(value:string){
     this.inputPass = value
     this.onChange(this.inputPass)
+    this.markAsTouched()
+    // this.writeValue(this.inputPass)
   }
 
   writeValue(value: string): void {
@@ -36,5 +40,12 @@ export class InputComponent implements ControlValueAccessor {
 
   registerOnTouched(fn: any): void {
     this.onTouch = fn;
+  }
+
+  markAsTouched(){
+    if(!this.touched){
+      this.onTouch()
+      this.touched = true
+    }
   }
 }

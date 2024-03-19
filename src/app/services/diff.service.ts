@@ -10,6 +10,8 @@ export class DiffService {
   letters: RegExp = /[a-zA-Z]/
   numbets: RegExp = /[0-9]/
   symbols: RegExp = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/
+
+  
   updateQuality(passForm:FormGroup, passQuality:string) {
     const inputPass = passForm.get('password');
     if (passForm.controls['password']?.errors?.['minlength']) {
